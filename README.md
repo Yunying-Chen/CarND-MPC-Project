@@ -12,4 +12,5 @@ This project implements a Model Predictive Controller(MPC) to control a vehicle 
 
 ## The Model
 In this project the Kinematic model is used. It recieves the state of the vehicle such as position(x,y), orientation angle(psi), velocity(v), cross-track error(cte) and orientation error(epsi). The outputs of the actuator are acceleration(throttle)  and steering angle. With the previous state and timestep, current state of the vehicle is calculated. The equations are as follows:                                                                        
-\chi_{t+1}= \chi_{t} + \upsilon_{t} * cos(\psi_{t}) * d_{t}
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= \chi_{t+1}= \chi_{t} + \upsilon_{t} * cos(\psi_{t}) * d_{t}" style="border:none;">
+
