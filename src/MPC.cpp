@@ -47,8 +47,9 @@ class FG_eval {
 
     // The cost is stored is the first element of `fg`.
     // Any additions to the cost should be added to `fg[0]`.
+	// Initial constraints.
     fg[0] = 0;
-
+    
     for(unsigned int i = 0; i < N; i++ ) {
       fg[0] += 55*CppAD::pow(vars[cte_start + i], 2);
       fg[0] += 55*CppAD::pow(vars[epsi_start + i], 2);
@@ -67,7 +68,7 @@ class FG_eval {
       fg[0] += 10000*CppAD::pow(vars[a_start + i + 1] - vars[a_start + i], 2);
     }
 
-    // Initial constraints.
+   
     fg[1 + x_start] = vars[x_start];
     fg[1 + y_start] = vars[y_start];
     fg[1 + psi_start] = vars[psi_start];
@@ -95,9 +96,17 @@ class FG_eval {
       // Only consider the actuation at time t.
       AD<double> delta0 = vars[delta_start + t - 1];
       AD<double> a0 = vars[a_start + t - 1];
+	  
+	  // deal with latency
+	  if (t > 1) 
+	  {  
+        a0 = vars[a_start + t - 2];
+        delta0 = vars[delta_start + t - 2];
+      }
 
       AD<double> f0 = coeffs[0] + coeffs[1] * x0 + coeffs[2] * CppAD::pow(x0, 2) + coeffs[3] * CppAD::pow(x0, 3);
       AD<double> psides0 = CppAD::atan(coeffs[1] + 2 * coeffs[2] * x0 + 3 * coeffs[3] * CppAD::pow(x0, 2));
+      
 
 
 

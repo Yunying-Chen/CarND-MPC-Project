@@ -104,7 +104,7 @@ int main() {
           // transform waypoints to be from car's perspective
           // this means we can consider px = 0, py = 0, and psi = 0
           // greatly simplifying future calculations
-          for (int i = 0; i < ptsx.size(); i++) {
+          for (unsigned int i = 0; i < ptsx.size(); i++) {
             double dx = ptsx[i] - px;
             double dy = ptsy[i] - py;
             ptsx_trans(i) = dx * cos(-psi) - dy * sin(-psi);
@@ -135,7 +135,7 @@ int main() {
           //.. add (x,y) points to list here, points are in reference to the vehicle's coordinate system
           // the points in the simulator are connected by a Green line
 
-          for (int i = 2; i < vars.size(); i ++) 
+          for (unsigned int i = 2; i < vars.size(); i ++) 
 		  {
             if (i%2 == 0)
 			{
