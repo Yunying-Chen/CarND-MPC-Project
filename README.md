@@ -1,4 +1,3 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 # CarND-MPC-Project
 
 ## Intro
@@ -13,7 +12,8 @@ This project implements a Model Predictive Controller(MPC) to control a vehicle 
 
 ## The Model
 In this project the Kinematic model is used. It recieves the state of the vehicle such as position(x,y), orientation angle(psi), velocity(v), cross-track error(cte) and orientation error(epsi). The outputs of the actuator are acceleration(throttle) and steering angle. With the previous state and timestep, current state of the vehicle is calculated. The equations are as follows:                                                                   
-$$x_{t+1}=x_{t}+\upsilon _{t}*cos(\psi _{t})*dt$$
+<img src="http://www.forkosh.com/mathtex.cgi? x_{t+1}=x_{t}+\upsilon _{t}*cos(\psi _{t})*dt">
+
 
 
 ## Timestep Length and Elapsed Duration (N & dt)
