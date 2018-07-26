@@ -98,8 +98,8 @@ class FG_eval {
       AD<double> a0 = vars[a_start + t - 1];
 	  
 	  // deal with latency
-	  if (t > 1) 
-	  {  
+      if (t > 1) 
+      {  
         a0 = vars[a_start + t - 2];
         delta0 = vars[delta_start + t - 2];
       }
